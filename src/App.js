@@ -9,22 +9,6 @@ import { MapboxLayer } from '@deck.gl/mapbox';
 import { ScatterplotLayer } from '@deck.gl/layers';
 
 function App() {
-  {/*}
-  var myConfObj = {
-    iframeMouseOver : false
-  }
-  window.addEventListener('blur',function(){
-    if(myConfObj.iframeMouseOver){
-      console.log('Wow! Iframe Click!');
-    }
-  });
-  
-  document.getElementById('map').addEventListener('mouseover',function(){
-     myConfObj.iframeMouseOver = true;
-  });
-  document.getElementById('map').addEventListener('mouseout',function(){
-      myConfObj.iframeMouseOver = false;
-  }); */}
   
   const [viewport, setViewport] = useState({
     latitude: 39.565055, 
@@ -70,6 +54,12 @@ function App() {
             Welcome to Wild Fire Economical Cost Simulator
         </h1>
       </header>
+        <h4>Created by
+        <a href="https://2020.spaceappschallenge.org/challenges/confront/spot-fire-3/teams/fire-spotting-team/"
+        target="_blank"
+        >Fire Spotting Team
+        </a>
+        </h4>
       <header className="App-header">
         {//<img src={logo} className="App-logo" alt="logo" />}
         }
@@ -97,15 +87,15 @@ function App() {
                 'line-width': 4
               }}
               onClick={e=> handleOnClick(e)}
-
             />
             {/*<CustomLayer 
             layer={myDeckLayer} 
             />*/}
             <Popup longitude={positionX} latitude={positionY} closeButton={false} closeOnClick={false}>
-              Name: {popUp.IncidentName}
-              <br/>Acres Burned: {popUp.Acres}
+              <h3>Name: {popUp.IncidentName}</h3>
+              <h4>Acres Burned: {popUp.Acres}
               <br/>Start Date: {popUp.CreateDate}
+              </h4>
             </Popup>
           </MapGL>
           
