@@ -3,7 +3,7 @@ import './App.css';
 import React, { useState } from 'react';
 import Draw from '@urbica/react-map-gl-draw';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import MapGL, { Source, Layer, CustomLayer } from '@urbica/react-map-gl';
+import MapGL, { Source, Layer, CustomLayer, Popup } from '@urbica/react-map-gl';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { ScatterplotLayer } from '@deck.gl/layers';
@@ -31,7 +31,28 @@ function App() {
     longitude: -102.264490,
     zoom: 4
   });
-  const [position, setPosition] = useState('top-left');
+  const [positionX, setPositionX] = useState(1);
+  const [positionY, setPositionY] = useState(1);
+  const [popUp, setPopUp] = useState({
+    IncidentName: "",
+    Acres:0,
+    CreateDate:"",
+    GlobalId:""
+  });
+  const handleOnClick = (e) => {
+    console.log("e: ", e)
+    console.log("popUp: ", popUp)
+    setPopUp({
+      IncidentName: e.features[0].properties.IncidentName,
+      Acres: parseFloat(e.features[0].properties.GISAcres).toFixed(2),
+      CreateDate:e.features[0].properties.CreateDate,
+      GlobalId: e.features[0].properties.GlobalId
+    })
+    
+    setPositionX(e.lngLat.lng)
+    console.log("positionX: ", positionX)
+    setPositionY(e.lngLat.lat)
+  }
   const myDeckLayer = new MapboxLayer({
     id: 'my-scatterplot',
     type: ScatterplotLayer,
@@ -53,10 +74,6 @@ function App() {
         {//<img src={logo} className="App-logo" alt="logo" />}
         }
         <>
-          <select onChange={(e) => setPosition(e.target.value)}>
-            <option value='top-left'>top-left</option>
-            <option value='top-right'>top-right</option>
-          </select>
           <MapGL
             style={{ width: '100%', height: '800px' }}
             mapStyle='mapbox://styles/mapbox/dark-v9'
@@ -77,37 +94,20 @@ function App() {
               }}
               paint={{
                 'line-color': '#8b0000',
-                'line-width': 8
+                'line-width': 4
               }}
-              onClick={(e) => console.log(e)}
+              onClick={e=> handleOnClick(e)}
 
             />
-            <CustomLayer 
+            {/*<CustomLayer 
             layer={myDeckLayer} 
-            />
+            />*/}
+            <Popup longitude={positionX} latitude={positionY} closeButton={false} closeOnClick={false}>
+              Name: {popUp.IncidentName}
+              <br/>Acres Burned: {popUp.Acres}
+              <br/>Start Date: {popUp.CreateDate}
+            </Popup>
           </MapGL>
-          {/*
-          <div className="embed-container">
-            <iframe
-            name="map"
-            width='1600px'
-            height="800px"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            title="Wild Fires"
-            src="//learngis2.maps.arcgis.com/apps/Embed/index.html?webmap=2a1b042440eb457f8e4f420d28fd2ad0&extent=-114.6052,32.858,-82.8547,46.7674&zoom=true&previewImage=false&scale=true&search=true&searchextent=true&basemap_gallery=true&disable_scroll=true&theme=light"
-            //onClick={e=>{console.log("Burada ne oluyor", e)}}
-            onSubmit={(e)=>{console.log("Burada ne oluyor", e)}}
-            >
-            </iframe>
-          </div>
-          <p></p>
-            {console.log("birseyler aliyormuyuz ", document)}
-            {setInterval(console.log("document: ", document.getElementsByClassName('contentPane')), 5)}
-            {/*setInterval(() => console.log("document: ", document.getElementsByClassName('mainSection'.toString())), 1000)*/}
-            {/*dijit.byId*/}
           
         </>
       </header>
