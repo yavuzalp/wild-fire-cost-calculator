@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/wild-fire-cost-calculator/static/css/main.62bc0c7f.chunk.css",
+    "main.js": "/wild-fire-cost-calculator/static/js/main.1056f697.chunk.js",
+    "main.js.map": "/wild-fire-cost-calculator/static/js/main.1056f697.chunk.js.map",
+    "runtime-main.js": "/wild-fire-cost-calculator/static/js/runtime-main.1dc55a97.js",
+    "runtime-main.js.map": "/wild-fire-cost-calculator/static/js/runtime-main.1dc55a97.js.map",
+    "static/css/2.b0618883.chunk.css": "/wild-fire-cost-calculator/static/css/2.b0618883.chunk.css",
+    "static/js/2.5d86d13c.chunk.js": "/wild-fire-cost-calculator/static/js/2.5d86d13c.chunk.js",
+    "static/js/2.5d86d13c.chunk.js.map": "/wild-fire-cost-calculator/static/js/2.5d86d13c.chunk.js.map",
+    "index.html": "/wild-fire-cost-calculator/index.html",
+    "precache-manifest.244a7ce1dd5eeae8a1d231f56937847a.js": "/wild-fire-cost-calculator/precache-manifest.244a7ce1dd5eeae8a1d231f56937847a.js",
+    "service-worker.js": "/wild-fire-cost-calculator/service-worker.js",
+    "static/css/2.b0618883.chunk.css.map": "/wild-fire-cost-calculator/static/css/2.b0618883.chunk.css.map",
+    "static/css/main.62bc0c7f.chunk.css.map": "/wild-fire-cost-calculator/static/css/main.62bc0c7f.chunk.css.map",
+    "static/js/2.5d86d13c.chunk.js.LICENSE.txt": "/wild-fire-cost-calculator/static/js/2.5d86d13c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/wild-fire-cost-calculator/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1dc55a97.js",
+    "static/css/2.b0618883.chunk.css",
+    "static/js/2.5d86d13c.chunk.js",
+    "static/css/main.62bc0c7f.chunk.css",
+    "static/js/main.1056f697.chunk.js"
+  ]
+}
