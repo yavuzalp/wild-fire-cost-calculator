@@ -10,9 +10,8 @@ import { ScatterplotLayer } from '@deck.gl/layers';
 import axios from "axios";
 
 
-//const get_data_url = "http://d8bd26560c2d.ngrok.io/api/cost";
-const get_data_url = "https://stark-brushlands-63325.herokuapp.com/api/cost";
-//const get_data_url = "api.qmic.online/api/v1/login";
+const get_data_url = "http://d8bd26560c2d.ngrok.io/api/cost";
+//const get_data_url = "https://stark-brushlands-63325.herokuapp.com/api/cost";
 function get_data(Long, Lat, Acres ) {
   /*return axios.post({
         method: 'post',
@@ -124,7 +123,7 @@ function App() {
               <h4>Acres Burned: {popUp.Acres}
               <br/>Start Date: {popUp.CreateDate}
               </h4>
-              <h2>Estimated Cost: {cost}</h2>
+              <h2>Estimated Cost: $ {cost}</h2>
             </Popup>
             }
           </MapGL>
