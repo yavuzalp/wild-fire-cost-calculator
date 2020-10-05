@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wild-fire-cost-calculator/precache-manifest.67801af7868523a550499e27971b3bb7.js"
+  "/wild-fire-cost-calculator/precache-manifest.1c225faafa23da1ac8a145c9938fb939.js"
 );
 
 self.addEventListener('message', (event) => {
