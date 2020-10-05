@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "79e6534a7bccd54023ef9f8d3254ed30",
+    "revision": "2cb0972390084dd39674614a6d468992",
     "url": "/wild-fire-cost-calculator/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wild-fire-cost-calculator/static/css/2.b0618883.chunk.css"
   },
   {
-    "revision": "f883b6fbf39e7a7104ae",
+    "revision": "fcbc4cc5e192d75fbdd4",
     "url": "/wild-fire-cost-calculator/static/css/main.ddb62eaa.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wild-fire-cost-calculator/static/js/2.2df42e5a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f883b6fbf39e7a7104ae",
-    "url": "/wild-fire-cost-calculator/static/js/main.d3cac049.chunk.js"
+    "revision": "fcbc4cc5e192d75fbdd4",
+    "url": "/wild-fire-cost-calculator/static/js/main.f469403d.chunk.js"
   },
   {
     "revision": "aaf8fd69b3b8126efc08",
