@@ -14,7 +14,7 @@ import axios from "axios";
 const get_data_url = "https://stark-brushlands-63325.herokuapp.com/api/cost";
 //const get_data_url = "api.qmic.online/api/v1/login";
 function get_data(Long, Lat, Acres ) {
-  return axios.post({
+  /*return axios.post({
         method: 'post',
         headers: {    
             'crossDomain': true,
@@ -23,9 +23,9 @@ function get_data(Long, Lat, Acres ) {
         },
         url: get_data_url,
         data: {Long, Lat, Acres},
-    });
+    });*/
 
-   //return axios.post(get_data_url, {Long, Lat, Acres});
+   return axios.post(get_data_url, {Long, Lat, Acres});
 }
 
 function App() {
