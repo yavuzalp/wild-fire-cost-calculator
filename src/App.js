@@ -10,8 +10,8 @@ import { ScatterplotLayer } from '@deck.gl/layers';
 import axios from "axios";
 
 
-const get_data_url = "https://d8bd26560c2d.ngrok.io/api/cost";
-//const get_data_url = "https://stark-brushlands-63325.herokuapp.com/api/cost";
+// const get_data_url = "https://d8bd26560c2d.ngrok.io/api/cost";
+// const get_data_url = "https://stark-brushlands-63325.herokuapp.com/api/cost";
 function get_data(Long, Lat, Acres ) {
   /*return axios.post({
         method: 'post',
@@ -24,7 +24,12 @@ function get_data(Long, Lat, Acres ) {
         data: {Long, Lat, Acres},
     });*/
 
-   return axios.post(get_data_url, {Long, Lat, Acres});
+    return axios({
+      url: '/costcalc',
+      method: 'POST',
+      params: {Long, Lat, Acres}
+    }, console.log('hey'))
+   // return axios.post(get_data_url, {Long, Lat, Acres});
 }
 
 function App() {
