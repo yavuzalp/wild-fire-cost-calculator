@@ -7,6 +7,12 @@ import MapGL, { Source, Layer, CustomLayer, Popup } from '@urbica/react-map-gl';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { ScatterplotLayer } from '@deck.gl/layers';
+import axios from "axios";
+
+const get_data_url = "http://d8bd26560c2d.ngrok.io/api/cost";
+function get_data(Long, Lat, Acres ) {
+  return axios.post(get_data_url, { Long, Lat, Acres});
+}
 
 function App() {
   
@@ -17,25 +23,32 @@ function App() {
   });
   const [positionX, setPositionX] = useState(1);
   const [positionY, setPositionY] = useState(1);
+  const [cost, setCost] = useState(0);
   const [popUp, setPopUp] = useState({
     IncidentName: "",
     Acres:0,
     CreateDate:"",
     GlobalId:""
   });
+  
   const handleOnClick = (e) => {
-    console.log("e: ", e)
-    console.log("popUp: ", popUp)
+    setPositionX(e.lngLat.lng)
+    setPositionY(e.lngLat.lat)
+
+    get_data(e.lngLat.lng, e.lngLat.lat, e.features[0].properties.GISAcres ).then(({ data: { get_cost_success, cost } }) => {
+      setCost(cost)
+      console.log("gelen data: ", cost)
+    })
+    .catch(error => {
+      console.log("gelen hata", error)
+    })
+    
     setPopUp({
       IncidentName: e.features[0].properties.IncidentName,
       Acres: parseFloat(e.features[0].properties.GISAcres).toFixed(2),
       CreateDate:e.features[0].properties.CreateDate,
       GlobalId: e.features[0].properties.GlobalId
     })
-    
-    setPositionX(e.lngLat.lng)
-    console.log("positionX: ", positionX)
-    setPositionY(e.lngLat.lat)
   }
   const myDeckLayer = new MapboxLayer({
     id: 'my-scatterplot',
@@ -95,6 +108,7 @@ function App() {
               <h3>Name: {popUp.IncidentName}</h3>
               <h4>Acres Burned: {popUp.Acres}
               <br/>Start Date: {popUp.CreateDate}
+              <br/>Estimated Cost: {cost}
               </h4>
             </Popup>
           </MapGL>
